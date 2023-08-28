@@ -35,7 +35,7 @@ public class PriradenieZnamkyTextovemuHodnoteniuSwitchCase {
                     System.out.println(1);
                     System.out.println("Si najlepší");
                     break;
-                case "chválitebny":
+                case "chvalitebny":
                     System.out.println(2);
                     break;
                 case "dobry":
