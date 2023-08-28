@@ -10,18 +10,18 @@ package SamostatnaPraca;
         !!!Vytvoriť matematické operácie cez metódy vratné statické!!!!
         */
 public class ZaklMatOpMetodamiUloha1 {
-    public static double scitanie(double cislo1, double cislo2){
+    public static double scitanie(double cislo1, double cislo2) {
       return cislo1 + cislo2;
     }
-    public static double odcitanie(double cislo1, double cislo2){
+    public static double odcitanie(double cislo1, double cislo2) {
         return cislo1 - cislo2;}
-    public static double nasobenie(double cislo1, double cislo2){
+    public static double nasobenie(double cislo1, double cislo2) {
         return cislo1 * cislo2;
     }
-    public static double delenie(double cislo1, double cislo2){
+    public static double delenie(double cislo1, double cislo2) {
         return cislo1 / cislo2;
     }
-    public static double modulo(double cislo1, double cislo2){
+    public static double modulo(double cislo1, double cislo2) {
         return cislo1 % cislo2;
     }
 

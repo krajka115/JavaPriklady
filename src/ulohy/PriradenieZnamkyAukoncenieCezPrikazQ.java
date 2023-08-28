@@ -18,7 +18,6 @@ public class PriradenieZnamkyAukoncenieCezPrikazQ {
 
             // konverzia string na int takto vid nižšie
             try {
-
             int pocetBodovAkoInt = Integer.parseInt(pocetBodov);
             if (pocetBodovAkoInt > 90) System.out.println("Tvoja známka je A"); // do prvej podmienky nedávať else iba if
             else if (pocetBodovAkoInt > 75) System.out.println("Tvoja známka je B");
@@ -26,6 +25,8 @@ public class PriradenieZnamkyAukoncenieCezPrikazQ {
             else System.out.println("Neviem priradiť známku k danému počtu bodov");
         } catch (NumberFormatException e) { // môžeme písať akekoľvek písmená , program ide dalej okrem q
                 System.out.println("Akceptovateľné písmeno, resp. znak je q alebo Q na ukončenie programu.");
+
+
             }
             }
 

@@ -11,6 +11,7 @@ package ulohy;
         Program po zadaní koniec ukončí svoju činnosť a nevypíše nič.*/
 
 import java.text.Normalizer;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PriradenieZnamkyTextovemuHodnoteniu {
@@ -39,10 +40,9 @@ public class PriradenieZnamkyTextovemuHodnoteniu {
                 else if (znamka.equals("nedostatocny")) System.out.println("Tvoja známka je 5");
                 else
                     System.out.println("Chybné zadanie. Skús napísať text znova s použitím interpunkčných znamienok.");
-            } catch (Exception e) {
-                skener.close();
+            } catch (InputMismatchException e) {
                 System.out.println("Akceptovateľné písmeno, resp. znak je q alebo Q na ukončenie programu.");
-
+                skener.close();
 
             }
         }

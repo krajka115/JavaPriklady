@@ -21,7 +21,7 @@ public class PriradenieZnamky {
     public static void main(String[] args) {
 
     //while(true) { // while reprezentuje cyklus s podmienkou na začiatku
-    //    for (;;) {  //použtie miesto while(true)
+    //for (;;) {  //použtie miesto while(true)
        int pocetBodov = 0; //po vložení try catch, bol počet bodov len vramci tých zatvoriek zložených. Toto je inicializácia premennej, aby bola platna v celom rozsahu aj v IF, preto tam už nemusí byť int iba nazov pocetBodov
 
         Scanner skener = new Scanner(System.in); // inicializacia skeneru pre pouzivatesky vstup z konzoly
