@@ -43,7 +43,7 @@ public class Obdlznik {
 
             String zadaj = skener.nextLine();
       try {
-          if (zadaj.equalsIgnoreCase("s")) {
+          if (zadaj.equals("s") || zadaj.equals("S")) {
               System.out.println(" Zadaj dĺžku strany a: ");
               double a = skener.nextDouble();
               System.out.println(" Zadaj dĺžku strany b: ");
