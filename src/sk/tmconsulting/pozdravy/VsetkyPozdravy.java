@@ -1,23 +1,40 @@
 package sk.tmconsulting.pozdravy;
 
-import java.util.Scanner;
 import sk.tmconsulting.pozdravy.slovensky.Ahoj;
 import sk.tmconsulting.pozdravy.nemecky.Hallo;
 import sk.tmconsulting.pozdravy.madarsky.Szia;
 import sk.tmconsulting.pozdravy.anglicky.Hello;
 
 public class VsetkyPozdravy {
-    public static void main(String[] args) { //vytvoriť objekty inštancií tried
-        Hello anglicky = new Hello(); //trieda,názov balicka,trieda
-        Szia madarsky = new Szia();
-        Hallo nemecky = new Hallo();
-        Ahoj slovensky = new Ahoj();
+    public static void main(String[] args) {
 
         // Volám metódy týchto objektov
-        anglicky.pozdravujemAnglicky(); // názov balicka a názov metody v triede
-        madarsky.pozdravujemMadarsky();
-        nemecky.pozdravujemNemecky();
-        slovensky.pozdravujemSlovensky();
-        }
+        System.out.println("Pozdravy v Anglickom, Maďarskom, Nemeckom a Slovenskom jazyku: ");
+        Hello.pozdravujem();
+        Szia.pozdravujem();
+        Hallo.pozdravujem();
+        Ahoj.pozdravujem();
+
+        System.out.println(); // Prázdny riadok
+
+
+
+
+
+        // Dynamicke volanie metod
+        // ak chceme volat nestaticke metody, musime najprv vytvorit objekt alebo instanciu triedy
+    Hello helloObjekt = new Hello(); // vytvorenie objektu, resp. instancii triedy Hello
+    helloObjekt.pozdravujemDynamicky();
+
+    Szia sziaObjekt = new Szia();
+    sziaObjekt.pozdravujemDynamicky();
+
+    Hallo halloObjekt = new Hallo();
+    halloObjekt.pozdravujemDynamicky();
+
+    Ahoj ahojObjekt = new Ahoj();
+    ahojObjekt.pozdravujemDynamicky();
     }
+}
+
 

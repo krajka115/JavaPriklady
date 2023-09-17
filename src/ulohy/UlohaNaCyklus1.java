@@ -1,22 +1,22 @@
 package ulohy;
-/*
-Úloha na opakovanie č.1: Vypíš maticu s údajmi od 1 do 25
-        Vytvorte (vypíšte) maticu údajov do konzoly, ktorá budú vyzerať nasledovne:
-   1 2 3 4 5
-   6 7 8 9 10
-   11 12 13 14 15
-   16...
-*/
-
 
 public class UlohaNaCyklus1 {
     public static void main(String[] args) {
-        for (int i = 1; i <= 25; i++) {
+        // TODO Ako vypisat hodnoty od 1 do 100, aby v prvom riadku vypisalo od 1 do 10, v druhom od 11 do 20, v tretom od 21 do 30, atd.
+        System.out.println("\nAko vypisať hodnoty od 1 do 100, aby v prvom riadku vypísalo od 1 do 10, v druhom od 11 do 20, v treťom od 21 do 30, atď.");
+        for (int i = 1; i <= 100; i++) {
             System.out.print(i + "\t");
-            if (i % 5 == 0) System.out.println();
+            if (i % 10 == 0) System.out.println();
         }
 
-
+        System.out.println("\nPodobná úloha ako vyššie s využitim 2 cyklov, resp. vnoreného.");
+        // Podobna uloha ako vyssie s vyuzitim 2 cyklov, resp. vnoreneho
+        for (int i = 0; i <= 9; i++) {
+            for (int j = 1; j <= 10; j++) {
+                System.out.print((10 * i + j) + "\t");
+            }
+            System.out.println();
         }
     }
+}
 

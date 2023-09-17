@@ -121,79 +121,116 @@ public class BookService {
         }
     }
     //3
-    public void zobrazKnihuPodlaIndexu () { // TODO zaistiť aby keď zadavateľ vpíše číslo a nie písmeno aby ho vrátilo späť do ponuky menu a už neopakovalo zobrazovanie knihy podla indexu
-        while (true) {
+    public void zobrazKnihuPodlaIndexu () { //  zaistiť aby keď zadavateľ vpíše číslo a nie písmeno aby ho vrátilo späť do ponuky menu a už neopakovalo zobrazovanie knihy podla indexu HOTOVO!!!
+
+        boolean chybaVstupu = true;
+
+        do {
             Scanner skener = new Scanner(System.in);
             System.out.println("Vpíš index knihy, ktorú chceš zobraziť: ");
             try {
                 int indexBook = skener.nextInt();
                 if (indexBook >= 0 && indexBook < bookList.size()) {
                     System.out.println(bookList.get(indexBook));
+                    chybaVstupu = false;
+                } else {
+                    System.out.println("Neplatný index knihy!");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Neplatný vstup! Zadaj číslo: ");
-                               }
-        }
-    }
-    //4
-    public void deleteBook() {
-        Scanner skener = new Scanner(System.in);
-        System.out.println("Zadaj index knihy, ktorú chceš odstrániť: ");
-       try {
-           int indexBook = skener.nextInt();
-           bookList.remove(indexBook);
-           System.out.println("Kniha " + indexBook + " je odstránená!");//TODO aby miesto čísla vypísalo aj názov, autora a rok
-       }catch (IndexOutOfBoundsException e){ // prejde na menu odznova ak vpíše vyššie číslo ako je dlžka zoznamu. // podobné ako pri 3 riesenie len neviem ako ukončiť cyklus po správnom zadaní!!!!
-           System.out.println("Neplatný vstup!");
-       }
-    }
-    //5
-    public int zobrazPocetVsetkychKnih (){
-        return bookList.size(); //vráti pocet všetkých kník z ArrayListu
-    }
 
-    public void startMenuBook (){
-        String zadanaVolbaPouzivatela = " ";
-        while (!zadanaVolbaPouzivatela.equals("koniec")){
-            zobrazMenu(); // zobrazí menu a čaká na vstup užívatela
-            Scanner skener = new Scanner(System.in);
-            zadanaVolbaPouzivatela = skener.nextLine().toLowerCase(); // zoberie text aj číslo ako text a zároveň prekonvertuje na malé písmená ak by užívatel zadal velké napríklad pri písaní slova koniec
-            //logický blok - chceme vpisovať čo vybral. funkcia switch/case/default a lambda výrazy (môžem použiť aj if)
-            switch (zadanaVolbaPouzivatela){
-                case "1" -> {
-                    System.out.println("Vybral si si číslo 1.");
-                    zadajNovuKnihu();
-                }
-                case "2" -> {
-                    System.out.println("Vybral si si číslo 2.");
-                    zobrazVsetkyKnihy();
-                }
-                case  "3" -> {
-                    System.out.println("Vybral si si číslo 3.");
-                    zobrazKnihuPodlaIndexu();
-                }
-                case  "4" -> {
-                    System.out.println("Vybral si si číslo 4 pre zmazanie knihy.");
-                    deleteBook();
-                }
-                case  "5" -> {
-                    System.out.println("Vybral si si číslo 5.");
-                    System.out.println("Počet všetkých kníh v zozname je: " + zobrazPocetVsetkychKnih());
-                }
-                case "koniec" -> {
-                    System.out.println("Vybral si si koniec."); // TODO skúsiť urobiť koniec ako menu ,kde: Potvrď voľbu: (y) ukončiť (n) vráti späť do menu;
-                    //if (zadanaVolbaPouzivatela.equals("")) System.exit(1); // ked zadam aj if, tak tento kod program ukonci a znova vypíše menu a pokračuje dalej
-                    //else zadanaVolbaPouzivatela = " ";
-                }
-                default -> {
-                    System.out.println("Nevybral si si nič z menu!");
-                    System.out.println("Vpísal si: " + zadanaVolbaPouzivatela);
-                }
             }
-
-        }
+        } while (chybaVstupu);
+        startMenuBook();
     }
 
 
+        //4
+        public void deleteBook () {
+            Scanner skener = new Scanner(System.in);
+            System.out.println("Zadaj index knihy, ktorú chceš odstrániť: ");
 
-}
+            try {
+                int indexBook = skener.nextInt();
+                String knihaPodlaIndexu = String.valueOf(bookList.remove(indexBook));
+                System.out.println("Vybral si si knihu číslo: " + indexBook +".");
+                System.out.println("KNIHA:\n" + knihaPodlaIndexu + "\nJE ODSTRÁNENÁ!");// aby miesto čísla vypísalo aj názov, autora a rok HOTOVO
+            } catch (InputMismatchException e) { // prejde na menu odznova ak vpíše vyššie číslo ako je dlžka zoznamu. // podobné ako pri 3 riesenie len neviem ako ukončiť cyklus po správnom zadaní!!!!
+                System.out.println("Neplatný vstup! Zadaj číslo: ");
+                deleteBook();
+            }catch (IndexOutOfBoundsException e) {
+                System.out.println("Zadal si neexistujúci index knihy!\n");
+                deleteBook();
+            }
+        }
+        //5
+        public int zobrazPocetVsetkychKnih () {
+            return bookList.size(); //vráti pocet všetkých kník z ArrayListu
+        }
+
+       //koniec
+        public void koniec () {
+            System.out.println("Naozaj si praješ program ukončiť? Zvoľ (y) yes/yes alebo (n) no/nie.");
+            Scanner skener = new Scanner(System.in);
+            String vstup = skener.nextLine();
+
+                if (vstup.equals("y") || vstup.equals("Y")) {
+                    System.out.println("Zvolil si \"y/Y\". Program bol ukončený!");
+                } else if (vstup.equals("n") || vstup.equals("N")) {
+                    System.out.println("Zvolil si \"n/N\". Pokračuj vo výbere z menu.");
+                    startMenuBook();
+                } else {
+                    System.out.println("Zadal si nesprávne písmeno! Opakuj voľbu prosím: \n");
+                    koniec();
+                }
+
+        }
+
+        public void startMenuBook () {
+            String zadanaVolbaPouzivatela = " ";
+            while (!zadanaVolbaPouzivatela.equals("koniec")) {
+                zobrazMenu(); // zobrazí menu a čaká na vstup užívatela
+                Scanner skener = new Scanner(System.in);
+                zadanaVolbaPouzivatela = skener.nextLine().toLowerCase(); // zoberie text aj číslo ako text a zároveň prekonvertuje na malé písmená ak by užívatel zadal velké napríklad pri písaní slova koniec
+                //logický blok - chceme vpisovať čo vybral. funkcia switch/case/default a lambda výrazy (môžem použiť aj if)
+                switch (zadanaVolbaPouzivatela) {
+                    case "1" -> {
+                        System.out.println("Vybral si si číslo 1.");
+                        zadajNovuKnihu();
+                    }
+                    case "2" -> {
+                        System.out.println("Vybral si si číslo 2.");
+                        zobrazVsetkyKnihy();
+                    }
+                    case "3" -> {
+                        System.out.println("Vybral si si číslo 3.");
+                        zobrazKnihuPodlaIndexu();
+                    }
+                    case "4" -> {
+                        System.out.println("Vybral si si číslo 4 pre zmazanie knihy.");
+                        deleteBook();
+                    }
+                    case "5" -> {
+                        System.out.println("Vybral si si číslo 5.");
+                        System.out.println("Počet všetkých kníh v zozname je: " + zobrazPocetVsetkychKnih());
+                    }
+                    case  "koniec" -> {
+                        koniec();
+                    }
+                   /* case "koniec" -> {
+                       System.out.println("Vybral si si koniec."); // skúsiť urobiť koniec ako menu ,kde: Potvrď voľbu: (y) ukončiť (n) vráti späť do menu; HOTOVO
+
+                        //if (zadanaVolbaPouzivatela.equals("")) System.exit(1); // ked zadam aj if, tak tento kod program ukonci a znova vypíše menu a pokračuje dalej
+                        //else zadanaVolbaPouzivatela = " ";
+                    }*/
+                    default -> {
+                        System.out.println("Nevybral si si nič z menu!");
+                        System.out.println("Vpísal si: " + zadanaVolbaPouzivatela);
+                    }
+                }
+
+            }
+        }
+
+
+    }

@@ -1,14 +1,14 @@
 package sk.tmconsulting.pozdravy.slovensky;
 
 public class Ahoj {
-    public static void main(String[] args) {
-        pozdravujemSlovensky();
 
-    }
-
-    public static void pozdravujemSlovensky() {
+    public static void pozdravujem() {
                    System.out.println(" Ahoj! ");
 
     }
 
+    public void pozdravujemDynamicky() {
+        System.out.println(" Ahoj! ");
+
+    }
     }

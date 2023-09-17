@@ -31,6 +31,6 @@ public class EvidenciaVozidielMain {
                 System.out.println(EvidenciaVozidielMain);
             }
             /*String vypisZnacku = ("\n\n\nVýpis z evidencie vozidiel pomocou metódy vypisZnacku: " + "\n" + auto1.vypisZnackuMetoda() + "\n" + auto2.vypisZnackuMetoda() + "\n" + auto3.vypisZnackuMetoda() + "\n" + auto4.vypisZnackuMetoda());*/
-            System.out.println("\n\n\nVýpis z evidencie vozidiel pomocou metódy vypisZnacku: " + "\n" + auto1.vypisZnackuMetoda() + "\n" + auto2.vypisZnackuMetoda() + "\n" + auto3.vypisZnackuMetoda() + "\n" + auto4.vypisZnackuMetoda());
+            System.out.println("\n\n\nVýpis z evidencie vozidiel pomocou metódy vypisZnackuMetoda: " + "\n" + auto1.vypisZnackuMetoda() + "\n" + auto2.vypisZnackuMetoda() + "\n" + auto3.vypisZnackuMetoda() + "\n" + auto4.vypisZnackuMetoda());
     }
 }

@@ -1,11 +1,12 @@
 package sk.tmconsulting.pozdravy.nemecky;
 
 public class Hallo {
-    public static void main(String[] args) {
-        pozdravujemNemecky();
+       public static void pozdravujem() {
+        System.out.println(" Hallo! ");
+
     }
 
-    public static void pozdravujemNemecky() {
+    public void pozdravujemDynamicky() {
         System.out.println(" Hallo! ");
 
     }

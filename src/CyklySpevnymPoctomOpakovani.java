@@ -47,8 +47,7 @@ public class CyklySpevnymPoctomOpakovani {
                 for (int j = 1; j <= 10 ; j++) {
                     System.out.print(++k + "\t");
                 }
-                System.out.println();
-            }
+            }System.out.println();
         // TODO Ako vypisat hodnoty od 1 do 100, aby v prvom riadku vypisalo od 1 do 10, v druhom od 11 do 20, v tretom od 21 do 30, atd.
         for (int i = 1; i <= 100; i++) {
             System.out.print(i + "\t");

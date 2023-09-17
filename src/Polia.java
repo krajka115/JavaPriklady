@@ -33,5 +33,12 @@ public class Polia {
         for (String konkretnaZnacka: znackyAut) {
             System.out.println(konkretnaZnacka);
         }
+        System.out.println("\nInicializacia pola s konkretnym poctom prvkov");
+        // TODO doplniť novú značku auta - toto nie je také jednoduche a priamočiare
+        int [] cisla = new int[8]; // inicializacia statickeho pola s 8-mi prvkami
+        cisla [0] = 10;
+        System.out.println(cisla[0]);
+        System.out.println(cisla[1]);
+
     }
 }
