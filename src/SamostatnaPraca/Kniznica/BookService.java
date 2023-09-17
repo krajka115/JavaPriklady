@@ -170,7 +170,7 @@ public class BookService {
 
        //koniec
         public void koniec () {
-            System.out.println("Naozaj si praješ program ukončiť? Zvoľ (y) yes/yes alebo (n) no/nie.");
+            System.out.println("Naozaj si praješ program ukončiť? Zvoľ (y) yes/áno alebo (n) no/nie.");
             Scanner skener = new Scanner(System.in);
             String vstup = skener.nextLine();
 
