@@ -48,16 +48,17 @@ public class Main {
                 frame.setMinimumSize(new Dimension(1000, 700)); // nastavíme veľkosť okna 1000x700 px (px=obrazových bodov)
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // ked kliknem na X na okne (cize vo frame) tak sa zatvori standardne
                 frame.setLocationRelativeTo(null); // vycentrovanie okna
+                //TODO nastavenie farby horného rámu
 
                 // Nastavenie farby pozadia na svetlo modrú
              //   frame.getContentPane().setBackground(new Color(173, 216, 230));
-                frame.getContentPane().setBackground(Color.GREEN);
+
 
 
                 // JFrame by mal obsahovat panel, teda container JPanel
                 JPanel panel = new JPanel();
                 panel.setLayout(null); // layout pre panel bude null, cize prazdny - podporí vytvorenie JTextField
-
+                panel.setBackground(Color.yellow);
                 frame.setContentPane(panel); // my dany panel pridame do frame
 
                 //vytvorenie farebného textu
@@ -146,7 +147,8 @@ Odkazy:
 
                 JButton btnOk = new JButton("OK");
                 btnOk.setBounds(800, 550, 80, 20);
-
+                btnOk.setBackground(Color.blue);
+                btnOk.setForeground(Color.white);
                 btnOk.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
