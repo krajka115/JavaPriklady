@@ -35,6 +35,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.awt.Color;
+import javax.swing.*;
 
 public class Main {
 
@@ -42,25 +44,74 @@ public class Main {
 
 
                 JFrame frame = new JFrame("Niečo o mne"); // vytvorime okno s názvom okna
-
-                frame.setMinimumSize(new Dimension(1000, 700)); // nastavíme veľkosť okna 400x200px (px=obrazových bodo)
+             //   frame.setVisible(true); //nefunguje, nie je vidieť vôbec nič ani text ani obrázok
+                frame.setMinimumSize(new Dimension(1000, 700)); // nastavíme veľkosť okna 1000x700 px (px=obrazových bodov)
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // ked kliknem na X na okne (cize vo frame) tak sa zatvori standardne
                 frame.setLocationRelativeTo(null); // vycentrovanie okna
+
+                // Nastavenie farby pozadia na svetlo modrú
+             //   frame.getContentPane().setBackground(new Color(173, 216, 230));
+                frame.getContentPane().setBackground(Color.GREEN);
 
 
                 // JFrame by mal obsahovat panel, teda container JPanel
                 JPanel panel = new JPanel();
                 panel.setLayout(null); // layout pre panel bude null, cize prazdny - podporí vytvorenie JTextField
 
-
                 frame.setContentPane(panel); // my dany panel pridame do frame
 
+                //vytvorenie farebného textu
+                JTextPane textPane = new JTextPane();
+                textPane.setText("Volám sa Katarína Krajčiová. ");
+                textPane.setBounds(400, 50, 500, 40);
 
-               JTextArea textArea = new JTextArea
+                // Vytvorte nový štýl
+                Style style = textPane.addStyle("MyStyle", null);
+                StyleConstants.setForeground(style, Color.BLUE); // Nastavíme farbu textu na červenú
+                StyleConstants.setFontSize(style,18);
 
+                // Aplikujte štýl na text v JTextPane
+                StyledDocument doc = textPane.getStyledDocument();
+                doc.setCharacterAttributes(0, textPane.getText().length(), style, false);
+
+                textPane.setOpaque(false);
+                panel.add(textPane);
+
+
+    /*            // Vytvorte nový štýl pre šikmé písmo
+                Style italicStyle = textPane.addStyle("ItalicStyle", null);
+                StyleConstants.setItalic(italicStyle, true);
+
+                // Vytvorte nový štýl pre zmena typu písma (napr. Arial)
+                Style fontChangeStyle = textPane.addStyle("FontChangeStyle", null);
+                StyleConstants.setFontFamily(fontChangeStyle, "Arial");
+
+                // Vytvorte nový štýl pre zvýraznenie hrubého písma
+                Style boldStyle = textPane.addStyle("BoldStyle", null);
+                StyleConstants.setBold(boldStyle, true);
+
+                // Vytvorte nový štýl pre podčiarknutie
+                Style underlineStyle = textPane.addStyle("UnderlineStyle", null);
+                StyleConstants.setUnderline(underlineStyle, true);
+
+                // Kombinujte štýly podľa potreby
+                Style combinedStyle = textPane.addStyle("CombinedStyle", null);
+                StyleConstants.setItalic(combinedStyle, true);
+                StyleConstants.setFontFamily(combinedStyle, "Arial");
+                StyleConstants.setBold(combinedStyle, true);
+                StyleConstants.setUnderline(combinedStyle, true);
+
+                // Aplikujte štýly na text v JTextPane podľa požiadaviek
+                StyledDocument doc = textPane.getStyledDocument();
+                doc.setCharacterAttributes(0, textPane.getText().length(), italicStyle, false);
+                doc.setCharacterAttributes(13, 5, fontChangeStyle, false); // Zmena typu písma od pozície 13 na 5 znakov
+                doc.setCharacterAttributes(29, 9, boldStyle, false); // Zvýraznenie hrubého písma od pozície 29 na 9 znakov
+                doc.setCharacterAttributes(40, 15, underlineStyle, false); // Podčiarknutie od pozície 40 na 15 znakov
+                doc.setCharacterAttributes(56, 14, combinedStyle, false); // Kombinovaný štýl od pozície 56 na 14 znakov*/
+
+
+                   JTextArea textArea = new JTextArea
                       ("""
-Volám sa Katarína Krajčiová. 
-
 Pochádzam zo Zlatých Moraviec. Mometnálne bývam už 12 rokov v dedinke Podolie pri Novom Meste nad Váhom.
 Pracujem v menšej spoločnosti, ktorá vyrába tlakomery, konkrétne na kalibračnom oddelení vrátane plánovania výroby.
 
@@ -80,12 +131,18 @@ Odkazy:
 
 
                 // popisok pod vytvoreným textovým fieldom
-                textArea.setBounds(400,50,500,350); // x, y, sirka, vyska
+                textArea.setBounds(400,80,500,310); // x, y, sirka, vyska
                 textArea.setLineWrap(true);
                 textArea.setWrapStyleWord(true);
                 textArea.setEditable(false);
                 textArea.setOpaque(false);
+
                 panel.add(textArea);
+
+
+
+
+
 
                 JButton btnOk = new JButton("OK");
                 btnOk.setBounds(800, 550, 80, 20);
@@ -173,6 +230,23 @@ Odkazy:
                 });
 
                 panel.add(hyperlinkLabel2);
+
+                JLabel hyperlinkLabel3 = new JLabel("<html><a href=\"https://www.linkedin.com/in/katka-krajčiová-679a511b5\">Môj LinkedIn</a></html>");
+                hyperlinkLabel3.setBounds(400, 460, 150, 20); // Nastavte polohu a veľkosť odkazu
+
+                hyperlinkLabel3.setCursor(new Cursor(Cursor.HAND_CURSOR)); // Zmení kurzor na ruku pri najazdení myšou
+
+                hyperlinkLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        try {
+                            Desktop.getDesktop().browse(new URI("https://www.linkedin.com/in/katka-krajčiová-679a511b5"));
+                        } catch (IOException | URISyntaxException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+                panel.add(hyperlinkLabel3);
 
 
 
