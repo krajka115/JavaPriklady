@@ -62,11 +62,13 @@ public class Main {
                 frame.setContentPane(panel); // my dany panel pridame do frame
 
                 //vytvorenie farebného textu
-                JTextPane textPane = new JTextPane();
+                JTextPane textPane = new JTextPane(); // dá sa do textu vpisovať
                 textPane.setText("Volám sa Katarína Krajčiová. ");
+                textPane.setEditable(false); //zakazala som prepis textu vo výstupe
                 textPane.setBounds(400, 50, 500, 40);
 
-                // Vytvorte nový štýl
+
+               // Vytvorte nový štýl
                 Style style = textPane.addStyle("MyStyle", null);
                 StyleConstants.setForeground(style, Color.BLUE); // Nastavíme farbu textu na červenú
                 StyleConstants.setFontSize(style,18);
